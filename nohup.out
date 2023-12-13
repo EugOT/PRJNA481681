@@ -1,0 +1,504 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 20
+Rules claiming more threads will be scaled down.
+Conda environments: ignored
+Job stats:
+job      count    min threads    max threads
+-----  -------  -------------  -------------
+all          1              1              1
+kb_gc       13             10             10
+total       14              1             10
+
+Select jobs to execute...
+
+[Tue Jul 20 09:28:34 2021]
+rule kb_gc:
+    input: fastq_gz/SRR7535545_1.fastq.gz, fastq_gz/SRR7535545_2.fastq.gz
+    output: kb_SRR7535545/counts_filtered/adata.h5ad
+    log: logs/kallisto-bus_SRR7535545.log
+    jobid: 3
+    wildcards: sample=SRR7535545
+    threads: 10
+    resources: tmpdir=/tmp
+
+kb count             -i /mnt/pub/GENCODE/M27/transcriptome.idx             -g /mnt/pub/GENCODE/M27/transcripts_to_genes.txt             -o kb_SRR7535545             -x DROPSEQ             -t 10             --h5ad             --filter bustools             fastq_gz/SRR7535545_1.fastq.gz fastq_gz/SRR7535545_2.fastq.gz
+
+[Tue Jul 20 09:28:34 2021]
+rule kb_gc:
+    input: fastq_gz/SRR7535543_1.fastq.gz, fastq_gz/SRR7535543_2.fastq.gz
+    output: kb_SRR7535543/counts_filtered/adata.h5ad
+    log: logs/kallisto-bus_SRR7535543.log
+    jobid: 1
+    wildcards: sample=SRR7535543
+    threads: 10
+    resources: tmpdir=/tmp
+
+kb count             -i /mnt/pub/GENCODE/M27/transcriptome.idx             -g /mnt/pub/GENCODE/M27/transcripts_to_genes.txt             -o kb_SRR7535543             -x DROPSEQ             -t 10             --h5ad             --filter bustools             fastq_gz/SRR7535543_1.fastq.gz fastq_gz/SRR7535543_2.fastq.gz
+[2021-07-20 09:28:35,336]    INFO [count] Using index /mnt/pub/GENCODE/M27/transcriptome.idx to generate BUS file to kb_SRR7535543 from
+[2021-07-20 09:28:35,337]    INFO [count]         fastq_gz/SRR7535543_1.fastq.gz
+[2021-07-20 09:28:35,337]    INFO [count]         fastq_gz/SRR7535543_2.fastq.gz
+[2021-07-20 09:28:35,338]    INFO [count] Using index /mnt/pub/GENCODE/M27/transcriptome.idx to generate BUS file to kb_SRR7535545 from
+[2021-07-20 09:28:35,338]    INFO [count]         fastq_gz/SRR7535545_1.fastq.gz
+[2021-07-20 09:28:35,338]    INFO [count]         fastq_gz/SRR7535545_2.fastq.gz
+[2021-07-20 09:29:41,468]    INFO [count] Sorting BUS file kb_SRR7535543/output.bus to kb_SRR7535543/tmp/output.s.bus
+[2021-07-20 09:29:54,413]    INFO [count] Whitelist not provided
+[2021-07-20 09:29:54,413]    INFO [count] Generating whitelist kb_SRR7535543/whitelist.txt from BUS file kb_SRR7535543/tmp/output.s.bus
+[2021-07-20 09:29:54,511]    INFO [count] Inspecting BUS file kb_SRR7535543/tmp/output.s.bus
+[2021-07-20 09:29:57,229]    INFO [count] Correcting BUS records in kb_SRR7535543/tmp/output.s.bus to kb_SRR7535543/tmp/output.s.c.bus with whitelist kb_SRR7535543/whitelist.txt
+[2021-07-20 09:29:58,688]    INFO [count] Sorting BUS file kb_SRR7535543/tmp/output.s.c.bus to kb_SRR7535543/output.unfiltered.bus
+[2021-07-20 09:30:03,227]    INFO [count] Generating count matrix kb_SRR7535543/counts_unfiltered/cells_x_genes from BUS file kb_SRR7535543/output.unfiltered.bus
+[2021-07-20 09:30:08,445]    INFO [count] Reading matrix kb_SRR7535543/counts_unfiltered/cells_x_genes.mtx
+[2021-07-20 09:30:09,946]    INFO [count] Writing matrix to h5ad kb_SRR7535543/counts_unfiltered/adata.h5ad
+... storing 'gene_name' as categorical
+[2021-07-20 09:30:10,647]    INFO [count] Filtering with bustools
+[2021-07-20 09:30:10,648]    INFO [count] Generating whitelist kb_SRR7535543/filter_barcodes.txt from BUS file kb_SRR7535543/output.unfiltered.bus
+[2021-07-20 09:30:10,680]    INFO [count] Correcting BUS records in kb_SRR7535543/output.unfiltered.bus to kb_SRR7535543/tmp/output.unfiltered.c.bus with whitelist kb_SRR7535543/filter_barcodes.txt
+[2021-07-20 09:30:11,296]    INFO [count] Sorting BUS file kb_SRR7535543/tmp/output.unfiltered.c.bus to kb_SRR7535543/output.filtered.bus
+[2021-07-20 09:30:15,500]    INFO [count] Generating count matrix kb_SRR7535543/counts_filtered/cells_x_genes from BUS file kb_SRR7535543/output.filtered.bus
+[2021-07-20 09:30:19,040]    INFO [count] Reading matrix kb_SRR7535543/counts_filtered/cells_x_genes.mtx
+[2021-07-20 09:30:20,166]    INFO [count] Writing matrix to h5ad kb_SRR7535543/counts_filtered/adata.h5ad
+... storing 'gene_name' as categorical
+[Tue Jul 20 09:30:21 2021]
+Finished job 1.
+1 of 14 steps (7%) done
+Select jobs to execute...
+
+[Tue Jul 20 09:30:21 2021]
+rule kb_gc:
+    input: fastq_gz/SRR7535553_1.fastq.gz, fastq_gz/SRR7535553_2.fastq.gz
+    output: kb_SRR7535553/counts_filtered/adata.h5ad
+    log: logs/kallisto-bus_SRR7535553.log
+    jobid: 11
+    wildcards: sample=SRR7535553
+    threads: 10
+    resources: tmpdir=/tmp
+
+kb count             -i /mnt/pub/GENCODE/M27/transcriptome.idx             -g /mnt/pub/GENCODE/M27/transcripts_to_genes.txt             -o kb_SRR7535553             -x DROPSEQ             -t 10             --h5ad             --filter bustools             fastq_gz/SRR7535553_1.fastq.gz fastq_gz/SRR7535553_2.fastq.gz
+[2021-07-20 09:30:22,367]    INFO [count] Using index /mnt/pub/GENCODE/M27/transcriptome.idx to generate BUS file to kb_SRR7535553 from
+[2021-07-20 09:30:22,367]    INFO [count]         fastq_gz/SRR7535553_1.fastq.gz
+[2021-07-20 09:30:22,367]    INFO [count]         fastq_gz/SRR7535553_2.fastq.gz
+[2021-07-20 09:32:47,487]    INFO [count] Sorting BUS file kb_SRR7535545/output.bus to kb_SRR7535545/tmp/output.s.bus
+[2021-07-20 09:33:36,992]    INFO [count] Whitelist not provided
+[2021-07-20 09:33:36,993]    INFO [count] Generating whitelist kb_SRR7535545/whitelist.txt from BUS file kb_SRR7535545/tmp/output.s.bus
+[2021-07-20 09:33:37,323]    INFO [count] Inspecting BUS file kb_SRR7535545/tmp/output.s.bus
+[2021-07-20 09:33:44,189]    INFO [count] Correcting BUS records in kb_SRR7535545/tmp/output.s.bus to kb_SRR7535545/tmp/output.s.c.bus with whitelist kb_SRR7535545/whitelist.txt
+[2021-07-20 09:33:49,620]    INFO [count] Sorting BUS file kb_SRR7535545/tmp/output.s.c.bus to kb_SRR7535545/output.unfiltered.bus
+[2021-07-20 09:33:57,794]    INFO [count] Generating count matrix kb_SRR7535545/counts_unfiltered/cells_x_genes from BUS file kb_SRR7535545/output.unfiltered.bus
+[2021-07-20 09:34:05,802]    INFO [count] Reading matrix kb_SRR7535545/counts_unfiltered/cells_x_genes.mtx
+[2021-07-20 09:34:13,561]    INFO [count] Writing matrix to h5ad kb_SRR7535545/counts_unfiltered/adata.h5ad
+... storing 'gene_name' as categorical
+[2021-07-20 09:34:14,304]    INFO [count] Filtering with bustools
+[2021-07-20 09:34:14,305]    INFO [count] Generating whitelist kb_SRR7535545/filter_barcodes.txt from BUS file kb_SRR7535545/output.unfiltered.bus
+[2021-07-20 09:34:14,372]    INFO [count] Correcting BUS records in kb_SRR7535545/output.unfiltered.bus to kb_SRR7535545/tmp/output.unfiltered.c.bus with whitelist kb_SRR7535545/filter_barcodes.txt
+[2021-07-20 09:34:16,495]    INFO [count] Sorting BUS file kb_SRR7535545/tmp/output.unfiltered.c.bus to kb_SRR7535545/output.filtered.bus
+[2021-07-20 09:34:22,980]    INFO [count] Generating count matrix kb_SRR7535545/counts_filtered/cells_x_genes from BUS file kb_SRR7535545/output.filtered.bus
+[2021-07-20 09:34:27,413]    INFO [count] Reading matrix kb_SRR7535545/counts_filtered/cells_x_genes.mtx
+[2021-07-20 09:34:28,905]    INFO [count] Writing matrix to h5ad kb_SRR7535545/counts_filtered/adata.h5ad
+... storing 'gene_name' as categorical
+[Tue Jul 20 09:34:29 2021]
+Finished job 3.
+2 of 14 steps (14%) done
+Select jobs to execute...
+
+[Tue Jul 20 09:34:29 2021]
+rule kb_gc:
+    input: fastq_gz/SRR7535555_1.fastq.gz, fastq_gz/SRR7535555_2.fastq.gz
+    output: kb_SRR7535555/counts_filtered/adata.h5ad
+    log: logs/kallisto-bus_SRR7535555.log
+    jobid: 13
+    wildcards: sample=SRR7535555
+    threads: 10
+    resources: tmpdir=/tmp
+
+kb count             -i /mnt/pub/GENCODE/M27/transcriptome.idx             -g /mnt/pub/GENCODE/M27/transcripts_to_genes.txt             -o kb_SRR7535555             -x DROPSEQ             -t 10             --h5ad             --filter bustools             fastq_gz/SRR7535555_1.fastq.gz fastq_gz/SRR7535555_2.fastq.gz
+[2021-07-20 09:34:31,012]    INFO [count] Sorting BUS file kb_SRR7535553/output.bus to kb_SRR7535553/tmp/output.s.bus
+[2021-07-20 09:34:31,285]    INFO [count] Using index /mnt/pub/GENCODE/M27/transcriptome.idx to generate BUS file to kb_SRR7535555 from
+[2021-07-20 09:34:31,286]    INFO [count]         fastq_gz/SRR7535555_1.fastq.gz
+[2021-07-20 09:34:31,286]    INFO [count]         fastq_gz/SRR7535555_2.fastq.gz
+[2021-07-20 09:35:07,862]    INFO [count] Whitelist not provided
+[2021-07-20 09:35:07,862]    INFO [count] Generating whitelist kb_SRR7535553/whitelist.txt from BUS file kb_SRR7535553/tmp/output.s.bus
+[2021-07-20 09:35:08,109]    INFO [count] Inspecting BUS file kb_SRR7535553/tmp/output.s.bus
+[2021-07-20 09:35:13,452]    INFO [count] Correcting BUS records in kb_SRR7535553/tmp/output.s.bus to kb_SRR7535553/tmp/output.s.c.bus with whitelist kb_SRR7535553/whitelist.txt
+[2021-07-20 09:35:20,946]    INFO [count] Sorting BUS file kb_SRR7535553/tmp/output.s.c.bus to kb_SRR7535553/output.unfiltered.bus
+[2021-07-20 09:35:29,717]    INFO [count] Generating count matrix kb_SRR7535553/counts_unfiltered/cells_x_genes from BUS file kb_SRR7535553/output.unfiltered.bus
+[2021-07-20 09:35:36,869]    INFO [count] Reading matrix kb_SRR7535553/counts_unfiltered/cells_x_genes.mtx
+[2021-07-20 09:35:39,692]    INFO [count] Writing matrix to h5ad kb_SRR7535553/counts_unfiltered/adata.h5ad
+... storing 'gene_name' as categorical
+[2021-07-20 09:35:40,404]    INFO [count] Filtering with bustools
+[2021-07-20 09:35:40,405]    INFO [count] Generating whitelist kb_SRR7535553/filter_barcodes.txt from BUS file kb_SRR7535553/output.unfiltered.bus
+[2021-07-20 09:35:40,476]    INFO [count] Correcting BUS records in kb_SRR7535553/output.unfiltered.bus to kb_SRR7535553/tmp/output.unfiltered.c.bus with whitelist kb_SRR7535553/filter_barcodes.txt
+[2021-07-20 09:35:43,281]    INFO [count] Sorting BUS file kb_SRR7535553/tmp/output.unfiltered.c.bus to kb_SRR7535553/output.filtered.bus
+[2021-07-20 09:35:50,943]    INFO [count] Generating count matrix kb_SRR7535553/counts_filtered/cells_x_genes from BUS file kb_SRR7535553/output.filtered.bus
+[2021-07-20 09:35:57,485]    INFO [count] Reading matrix kb_SRR7535553/counts_filtered/cells_x_genes.mtx
+[2021-07-20 09:35:59,623]    INFO [count] Writing matrix to h5ad kb_SRR7535553/counts_filtered/adata.h5ad
+... storing 'gene_name' as categorical
+[Tue Jul 20 09:36:00 2021]
+Finished job 11.
+3 of 14 steps (21%) done
+Select jobs to execute...
+
+[Tue Jul 20 09:36:00 2021]
+rule kb_gc:
+    input: fastq_gz/SRR7535551_1.fastq.gz, fastq_gz/SRR7535551_2.fastq.gz
+    output: kb_SRR7535551/counts_filtered/adata.h5ad
+    log: logs/kallisto-bus_SRR7535551.log
+    jobid: 9
+    wildcards: sample=SRR7535551
+    threads: 10
+    resources: tmpdir=/tmp
+
+kb count             -i /mnt/pub/GENCODE/M27/transcriptome.idx             -g /mnt/pub/GENCODE/M27/transcripts_to_genes.txt             -o kb_SRR7535551             -x DROPSEQ             -t 10             --h5ad             --filter bustools             fastq_gz/SRR7535551_1.fastq.gz fastq_gz/SRR7535551_2.fastq.gz
+[2021-07-20 09:36:02,349]    INFO [count] Using index /mnt/pub/GENCODE/M27/transcriptome.idx to generate BUS file to kb_SRR7535551 from
+[2021-07-20 09:36:02,349]    INFO [count]         fastq_gz/SRR7535551_1.fastq.gz
+[2021-07-20 09:36:02,349]    INFO [count]         fastq_gz/SRR7535551_2.fastq.gz
+[2021-07-20 09:38:42,288]    INFO [count] Sorting BUS file kb_SRR7535555/output.bus to kb_SRR7535555/tmp/output.s.bus
+[2021-07-20 09:39:24,866]    INFO [count] Whitelist not provided
+[2021-07-20 09:39:24,867]    INFO [count] Generating whitelist kb_SRR7535555/whitelist.txt from BUS file kb_SRR7535555/tmp/output.s.bus
+[2021-07-20 09:39:25,148]    INFO [count] Inspecting BUS file kb_SRR7535555/tmp/output.s.bus
+[2021-07-20 09:39:30,599]    INFO [count] Correcting BUS records in kb_SRR7535555/tmp/output.s.bus to kb_SRR7535555/tmp/output.s.c.bus with whitelist kb_SRR7535555/whitelist.txt
+[2021-07-20 09:39:40,069]    INFO [count] Sorting BUS file kb_SRR7535555/tmp/output.s.c.bus to kb_SRR7535555/output.unfiltered.bus
+[2021-07-20 09:39:53,338]    INFO [count] Generating count matrix kb_SRR7535555/counts_unfiltered/cells_x_genes from BUS file kb_SRR7535555/output.unfiltered.bus
+[2021-07-20 09:40:00,711]    INFO [count] Sorting BUS file kb_SRR7535551/output.bus to kb_SRR7535551/tmp/output.s.bus
+[2021-07-20 09:40:03,043]    INFO [count] Reading matrix kb_SRR7535555/counts_unfiltered/cells_x_genes.mtx
+[2021-07-20 09:40:07,158]    INFO [count] Writing matrix to h5ad kb_SRR7535555/counts_unfiltered/adata.h5ad
+... storing 'gene_name' as categorical
+[2021-07-20 09:40:07,852]    INFO [count] Filtering with bustools
+[2021-07-20 09:40:07,853]    INFO [count] Generating whitelist kb_SRR7535555/filter_barcodes.txt from BUS file kb_SRR7535555/output.unfiltered.bus
+[2021-07-20 09:40:07,944]    INFO [count] Correcting BUS records in kb_SRR7535555/output.unfiltered.bus to kb_SRR7535555/tmp/output.unfiltered.c.bus with whitelist kb_SRR7535555/filter_barcodes.txt
+[2021-07-20 09:40:12,224]    INFO [count] Sorting BUS file kb_SRR7535555/tmp/output.unfiltered.c.bus to kb_SRR7535555/output.filtered.bus
+[2021-07-20 09:40:23,317]    INFO [count] Generating count matrix kb_SRR7535555/counts_filtered/cells_x_genes from BUS file kb_SRR7535555/output.filtered.bus
+[2021-07-20 09:40:31,701]    INFO [count] Reading matrix kb_SRR7535555/counts_filtered/cells_x_genes.mtx
+[2021-07-20 09:40:35,045]    INFO [count] Writing matrix to h5ad kb_SRR7535555/counts_filtered/adata.h5ad
+... storing 'gene_name' as categorical
+[Tue Jul 20 09:40:36 2021]
+Finished job 13.
+4 of 14 steps (29%) done
+Select jobs to execute...
+
+[Tue Jul 20 09:40:36 2021]
+rule kb_gc:
+    input: fastq_gz/SRR7535549_1.fastq.gz, fastq_gz/SRR7535549_2.fastq.gz
+    output: kb_SRR7535549/counts_filtered/adata.h5ad
+    log: logs/kallisto-bus_SRR7535549.log
+    jobid: 7
+    wildcards: sample=SRR7535549
+    threads: 10
+    resources: tmpdir=/tmp
+
+kb count             -i /mnt/pub/GENCODE/M27/transcriptome.idx             -g /mnt/pub/GENCODE/M27/transcripts_to_genes.txt             -o kb_SRR7535549             -x DROPSEQ             -t 10             --h5ad             --filter bustools             fastq_gz/SRR7535549_1.fastq.gz fastq_gz/SRR7535549_2.fastq.gz
+[2021-07-20 09:40:37,664]    INFO [count] Using index /mnt/pub/GENCODE/M27/transcriptome.idx to generate BUS file to kb_SRR7535549 from
+[2021-07-20 09:40:37,664]    INFO [count]         fastq_gz/SRR7535549_1.fastq.gz
+[2021-07-20 09:40:37,664]    INFO [count]         fastq_gz/SRR7535549_2.fastq.gz
+[2021-07-20 09:40:38,354]    INFO [count] Whitelist not provided
+[2021-07-20 09:40:38,354]    INFO [count] Generating whitelist kb_SRR7535551/whitelist.txt from BUS file kb_SRR7535551/tmp/output.s.bus
+[2021-07-20 09:40:38,605]    INFO [count] Inspecting BUS file kb_SRR7535551/tmp/output.s.bus
+[2021-07-20 09:40:43,141]    INFO [count] Correcting BUS records in kb_SRR7535551/tmp/output.s.bus to kb_SRR7535551/tmp/output.s.c.bus with whitelist kb_SRR7535551/whitelist.txt
+[2021-07-20 09:40:48,298]    INFO [count] Sorting BUS file kb_SRR7535551/tmp/output.s.c.bus to kb_SRR7535551/output.unfiltered.bus
+[2021-07-20 09:40:56,363]    INFO [count] Generating count matrix kb_SRR7535551/counts_unfiltered/cells_x_genes from BUS file kb_SRR7535551/output.unfiltered.bus
+[2021-07-20 09:41:05,860]    INFO [count] Reading matrix kb_SRR7535551/counts_unfiltered/cells_x_genes.mtx
+[2021-07-20 09:41:09,090]    INFO [count] Writing matrix to h5ad kb_SRR7535551/counts_unfiltered/adata.h5ad
+... storing 'gene_name' as categorical
+[2021-07-20 09:41:09,884]    INFO [count] Filtering with bustools
+[2021-07-20 09:41:09,884]    INFO [count] Generating whitelist kb_SRR7535551/filter_barcodes.txt from BUS file kb_SRR7535551/output.unfiltered.bus
+[2021-07-20 09:41:09,954]    INFO [count] Correcting BUS records in kb_SRR7535551/output.unfiltered.bus to kb_SRR7535551/tmp/output.unfiltered.c.bus with whitelist kb_SRR7535551/filter_barcodes.txt
+[2021-07-20 09:41:13,060]    INFO [count] Sorting BUS file kb_SRR7535551/tmp/output.unfiltered.c.bus to kb_SRR7535551/output.filtered.bus
+[2021-07-20 09:41:21,119]    INFO [count] Generating count matrix kb_SRR7535551/counts_filtered/cells_x_genes from BUS file kb_SRR7535551/output.filtered.bus
+[2021-07-20 09:41:27,692]    INFO [count] Reading matrix kb_SRR7535551/counts_filtered/cells_x_genes.mtx
+[2021-07-20 09:41:30,134]    INFO [count] Writing matrix to h5ad kb_SRR7535551/counts_filtered/adata.h5ad
+... storing 'gene_name' as categorical
+[Tue Jul 20 09:41:31 2021]
+Finished job 9.
+5 of 14 steps (36%) done
+Select jobs to execute...
+
+[Tue Jul 20 09:41:31 2021]
+rule kb_gc:
+    input: fastq_gz/SRR7535546_1.fastq.gz, fastq_gz/SRR7535546_2.fastq.gz
+    output: kb_SRR7535546/counts_filtered/adata.h5ad
+    log: logs/kallisto-bus_SRR7535546.log
+    jobid: 4
+    wildcards: sample=SRR7535546
+    threads: 10
+    resources: tmpdir=/tmp
+
+kb count             -i /mnt/pub/GENCODE/M27/transcriptome.idx             -g /mnt/pub/GENCODE/M27/transcripts_to_genes.txt             -o kb_SRR7535546             -x DROPSEQ             -t 10             --h5ad             --filter bustools             fastq_gz/SRR7535546_1.fastq.gz fastq_gz/SRR7535546_2.fastq.gz
+[2021-07-20 09:41:32,570]    INFO [count] Using index /mnt/pub/GENCODE/M27/transcriptome.idx to generate BUS file to kb_SRR7535546 from
+[2021-07-20 09:41:32,570]    INFO [count]         fastq_gz/SRR7535546_1.fastq.gz
+[2021-07-20 09:41:32,571]    INFO [count]         fastq_gz/SRR7535546_2.fastq.gz
+[2021-07-20 09:44:14,402]    INFO [count] Sorting BUS file kb_SRR7535549/output.bus to kb_SRR7535549/tmp/output.s.bus
+[2021-07-20 09:44:39,192]    INFO [count] Whitelist not provided
+[2021-07-20 09:44:39,193]    INFO [count] Generating whitelist kb_SRR7535549/whitelist.txt from BUS file kb_SRR7535549/tmp/output.s.bus
+[2021-07-20 09:44:39,382]    INFO [count] Inspecting BUS file kb_SRR7535549/tmp/output.s.bus
+[2021-07-20 09:44:43,918]    INFO [count] Correcting BUS records in kb_SRR7535549/tmp/output.s.bus to kb_SRR7535549/tmp/output.s.c.bus with whitelist kb_SRR7535549/whitelist.txt
+[2021-07-20 09:44:46,231]    INFO [count] Sorting BUS file kb_SRR7535549/tmp/output.s.c.bus to kb_SRR7535549/output.unfiltered.bus
+[2021-07-20 09:44:52,458]    INFO [count] Generating count matrix kb_SRR7535549/counts_unfiltered/cells_x_genes from BUS file kb_SRR7535549/output.unfiltered.bus
+[2021-07-20 09:44:56,642]    INFO [count] Reading matrix kb_SRR7535549/counts_unfiltered/cells_x_genes.mtx
+[2021-07-20 09:44:58,114]    INFO [count] Writing matrix to h5ad kb_SRR7535549/counts_unfiltered/adata.h5ad
+... storing 'gene_name' as categorical
+[2021-07-20 09:44:58,789]    INFO [count] Filtering with bustools
+[2021-07-20 09:44:58,789]    INFO [count] Generating whitelist kb_SRR7535549/filter_barcodes.txt from BUS file kb_SRR7535549/output.unfiltered.bus
+[2021-07-20 09:44:58,830]    INFO [count] Correcting BUS records in kb_SRR7535549/output.unfiltered.bus to kb_SRR7535549/tmp/output.unfiltered.c.bus with whitelist kb_SRR7535549/filter_barcodes.txt
+[2021-07-20 09:44:59,522]    INFO [count] Sorting BUS file kb_SRR7535549/tmp/output.unfiltered.c.bus to kb_SRR7535549/output.filtered.bus
+[2021-07-20 09:45:03,920]    INFO [count] Generating count matrix kb_SRR7535549/counts_filtered/cells_x_genes from BUS file kb_SRR7535549/output.filtered.bus
+[2021-07-20 09:45:06,980]    INFO [count] Reading matrix kb_SRR7535549/counts_filtered/cells_x_genes.mtx
+[2021-07-20 09:45:07,789]    INFO [count] Writing matrix to h5ad kb_SRR7535549/counts_filtered/adata.h5ad
+... storing 'gene_name' as categorical
+[Tue Jul 20 09:45:08 2021]
+Finished job 7.
+6 of 14 steps (43%) done
+Select jobs to execute...
+
+[Tue Jul 20 09:45:08 2021]
+rule kb_gc:
+    input: fastq_gz/SRR7535544_1.fastq.gz, fastq_gz/SRR7535544_2.fastq.gz
+    output: kb_SRR7535544/counts_filtered/adata.h5ad
+    log: logs/kallisto-bus_SRR7535544.log
+    jobid: 2
+    wildcards: sample=SRR7535544
+    threads: 10
+    resources: tmpdir=/tmp
+
+kb count             -i /mnt/pub/GENCODE/M27/transcriptome.idx             -g /mnt/pub/GENCODE/M27/transcripts_to_genes.txt             -o kb_SRR7535544             -x DROPSEQ             -t 10             --h5ad             --filter bustools             fastq_gz/SRR7535544_1.fastq.gz fastq_gz/SRR7535544_2.fastq.gz
+[2021-07-20 09:45:10,435]    INFO [count] Using index /mnt/pub/GENCODE/M27/transcriptome.idx to generate BUS file to kb_SRR7535544 from
+[2021-07-20 09:45:10,436]    INFO [count]         fastq_gz/SRR7535544_1.fastq.gz
+[2021-07-20 09:45:10,436]    INFO [count]         fastq_gz/SRR7535544_2.fastq.gz
+[2021-07-20 09:46:37,542]    INFO [count] Sorting BUS file kb_SRR7535546/output.bus to kb_SRR7535546/tmp/output.s.bus
+[2021-07-20 09:47:26,323]    INFO [count] Whitelist not provided
+[2021-07-20 09:47:26,323]    INFO [count] Generating whitelist kb_SRR7535546/whitelist.txt from BUS file kb_SRR7535546/tmp/output.s.bus
+[2021-07-20 09:47:26,654]    INFO [count] Inspecting BUS file kb_SRR7535546/tmp/output.s.bus
+[2021-07-20 09:47:32,829]    INFO [count] Correcting BUS records in kb_SRR7535546/tmp/output.s.bus to kb_SRR7535546/tmp/output.s.c.bus with whitelist kb_SRR7535546/whitelist.txt
+[2021-07-20 09:47:38,878]    INFO [count] Sorting BUS file kb_SRR7535546/tmp/output.s.c.bus to kb_SRR7535546/output.unfiltered.bus
+[2021-07-20 09:47:47,265]    INFO [count] Generating count matrix kb_SRR7535546/counts_unfiltered/cells_x_genes from BUS file kb_SRR7535546/output.unfiltered.bus
+[2021-07-20 09:47:55,967]    INFO [count] Reading matrix kb_SRR7535546/counts_unfiltered/cells_x_genes.mtx
+[2021-07-20 09:47:58,840]    INFO [count] Writing matrix to h5ad kb_SRR7535546/counts_unfiltered/adata.h5ad
+... storing 'gene_name' as categorical
+[2021-07-20 09:47:59,660]    INFO [count] Filtering with bustools
+[2021-07-20 09:47:59,660]    INFO [count] Generating whitelist kb_SRR7535546/filter_barcodes.txt from BUS file kb_SRR7535546/output.unfiltered.bus
+[2021-07-20 09:47:59,729]    INFO [count] Correcting BUS records in kb_SRR7535546/output.unfiltered.bus to kb_SRR7535546/tmp/output.unfiltered.c.bus with whitelist kb_SRR7535546/filter_barcodes.txt
+[2021-07-20 09:48:02,072]    INFO [count] Sorting BUS file kb_SRR7535546/tmp/output.unfiltered.c.bus to kb_SRR7535546/output.filtered.bus
+[2021-07-20 09:48:09,048]    INFO [count] Generating count matrix kb_SRR7535546/counts_filtered/cells_x_genes from BUS file kb_SRR7535546/output.filtered.bus
+[2021-07-20 09:48:13,880]    INFO [count] Reading matrix kb_SRR7535546/counts_filtered/cells_x_genes.mtx
+[2021-07-20 09:48:15,636]    INFO [count] Writing matrix to h5ad kb_SRR7535546/counts_filtered/adata.h5ad
+... storing 'gene_name' as categorical
+[Tue Jul 20 09:48:16 2021]
+Finished job 4.
+7 of 14 steps (50%) done
+Select jobs to execute...
+
+[Tue Jul 20 09:48:16 2021]
+rule kb_gc:
+    input: fastq_gz/SRR7535552_1.fastq.gz, fastq_gz/SRR7535552_2.fastq.gz
+    output: kb_SRR7535552/counts_filtered/adata.h5ad
+    log: logs/kallisto-bus_SRR7535552.log
+    jobid: 10
+    wildcards: sample=SRR7535552
+    threads: 10
+    resources: tmpdir=/tmp
+
+kb count             -i /mnt/pub/GENCODE/M27/transcriptome.idx             -g /mnt/pub/GENCODE/M27/transcripts_to_genes.txt             -o kb_SRR7535552             -x DROPSEQ             -t 10             --h5ad             --filter bustools             fastq_gz/SRR7535552_1.fastq.gz fastq_gz/SRR7535552_2.fastq.gz
+[2021-07-20 09:48:17,976]    INFO [count] Sorting BUS file kb_SRR7535544/output.bus to kb_SRR7535544/tmp/output.s.bus
+[2021-07-20 09:48:18,108]    INFO [count] Using index /mnt/pub/GENCODE/M27/transcriptome.idx to generate BUS file to kb_SRR7535552 from
+[2021-07-20 09:48:18,108]    INFO [count]         fastq_gz/SRR7535552_1.fastq.gz
+[2021-07-20 09:48:18,109]    INFO [count]         fastq_gz/SRR7535552_2.fastq.gz
+[2021-07-20 09:48:41,300]    INFO [count] Whitelist not provided
+[2021-07-20 09:48:41,301]    INFO [count] Generating whitelist kb_SRR7535544/whitelist.txt from BUS file kb_SRR7535544/tmp/output.s.bus
+[2021-07-20 09:48:41,508]    INFO [count] Inspecting BUS file kb_SRR7535544/tmp/output.s.bus
+[2021-07-20 09:48:46,661]    INFO [count] Correcting BUS records in kb_SRR7535544/tmp/output.s.bus to kb_SRR7535544/tmp/output.s.c.bus with whitelist kb_SRR7535544/whitelist.txt
+[2021-07-20 09:48:51,945]    INFO [count] Sorting BUS file kb_SRR7535544/tmp/output.s.c.bus to kb_SRR7535544/output.unfiltered.bus
+[2021-07-20 09:49:00,196]    INFO [count] Generating count matrix kb_SRR7535544/counts_unfiltered/cells_x_genes from BUS file kb_SRR7535544/output.unfiltered.bus
+[2021-07-20 09:49:08,844]    INFO [count] Reading matrix kb_SRR7535544/counts_unfiltered/cells_x_genes.mtx
+[2021-07-20 09:49:11,982]    INFO [count] Writing matrix to h5ad kb_SRR7535544/counts_unfiltered/adata.h5ad
+... storing 'gene_name' as categorical
+[2021-07-20 09:49:12,743]    INFO [count] Filtering with bustools
+[2021-07-20 09:49:12,743]    INFO [count] Generating whitelist kb_SRR7535544/filter_barcodes.txt from BUS file kb_SRR7535544/output.unfiltered.bus
+[2021-07-20 09:49:12,804]    INFO [count] Correcting BUS records in kb_SRR7535544/output.unfiltered.bus to kb_SRR7535544/tmp/output.unfiltered.c.bus with whitelist kb_SRR7535544/filter_barcodes.txt
+[2021-07-20 09:49:15,049]    INFO [count] Sorting BUS file kb_SRR7535544/tmp/output.unfiltered.c.bus to kb_SRR7535544/output.filtered.bus
+[2021-07-20 09:49:21,728]    INFO [count] Generating count matrix kb_SRR7535544/counts_filtered/cells_x_genes from BUS file kb_SRR7535544/output.filtered.bus
+[2021-07-20 09:49:27,652]    INFO [count] Reading matrix kb_SRR7535544/counts_filtered/cells_x_genes.mtx
+[2021-07-20 09:49:29,775]    INFO [count] Writing matrix to h5ad kb_SRR7535544/counts_filtered/adata.h5ad
+... storing 'gene_name' as categorical
+[Tue Jul 20 09:49:30 2021]
+Finished job 2.
+8 of 14 steps (57%) done
+Select jobs to execute...
+
+[Tue Jul 20 09:49:30 2021]
+rule kb_gc:
+    input: fastq_gz/SRR7535550_1.fastq.gz, fastq_gz/SRR7535550_2.fastq.gz
+    output: kb_SRR7535550/counts_filtered/adata.h5ad
+    log: logs/kallisto-bus_SRR7535550.log
+    jobid: 8
+    wildcards: sample=SRR7535550
+    threads: 10
+    resources: tmpdir=/tmp
+
+kb count             -i /mnt/pub/GENCODE/M27/transcriptome.idx             -g /mnt/pub/GENCODE/M27/transcripts_to_genes.txt             -o kb_SRR7535550             -x DROPSEQ             -t 10             --h5ad             --filter bustools             fastq_gz/SRR7535550_1.fastq.gz fastq_gz/SRR7535550_2.fastq.gz
+[2021-07-20 09:49:32,467]    INFO [count] Using index /mnt/pub/GENCODE/M27/transcriptome.idx to generate BUS file to kb_SRR7535550 from
+[2021-07-20 09:49:32,467]    INFO [count]         fastq_gz/SRR7535550_1.fastq.gz
+[2021-07-20 09:49:32,468]    INFO [count]         fastq_gz/SRR7535550_2.fastq.gz
+[2021-07-20 09:52:09,384]    INFO [count] Sorting BUS file kb_SRR7535552/output.bus to kb_SRR7535552/tmp/output.s.bus
+[2021-07-20 09:52:36,313]    INFO [count] Whitelist not provided
+[2021-07-20 09:52:36,314]    INFO [count] Generating whitelist kb_SRR7535552/whitelist.txt from BUS file kb_SRR7535552/tmp/output.s.bus
+[2021-07-20 09:52:36,514]    INFO [count] Inspecting BUS file kb_SRR7535552/tmp/output.s.bus
+[2021-07-20 09:52:40,919]    INFO [count] Correcting BUS records in kb_SRR7535552/tmp/output.s.bus to kb_SRR7535552/tmp/output.s.c.bus with whitelist kb_SRR7535552/whitelist.txt
+[2021-07-20 09:52:43,276]    INFO [count] Sorting BUS file kb_SRR7535552/tmp/output.s.c.bus to kb_SRR7535552/output.unfiltered.bus
+[2021-07-20 09:52:49,216]    INFO [count] Generating count matrix kb_SRR7535552/counts_unfiltered/cells_x_genes from BUS file kb_SRR7535552/output.unfiltered.bus
+[2021-07-20 09:52:53,532]    INFO [count] Reading matrix kb_SRR7535552/counts_unfiltered/cells_x_genes.mtx
+[2021-07-20 09:52:54,710]    INFO [count] Writing matrix to h5ad kb_SRR7535552/counts_unfiltered/adata.h5ad
+... storing 'gene_name' as categorical
+[2021-07-20 09:52:55,244]    INFO [count] Filtering with bustools
+[2021-07-20 09:52:55,244]    INFO [count] Generating whitelist kb_SRR7535552/filter_barcodes.txt from BUS file kb_SRR7535552/output.unfiltered.bus
+[2021-07-20 09:52:55,280]    INFO [count] Correcting BUS records in kb_SRR7535552/output.unfiltered.bus to kb_SRR7535552/tmp/output.unfiltered.c.bus with whitelist kb_SRR7535552/filter_barcodes.txt
+[2021-07-20 09:52:55,812]    INFO [count] Sorting BUS file kb_SRR7535552/tmp/output.unfiltered.c.bus to kb_SRR7535552/output.filtered.bus
+[2021-07-20 09:52:59,468]    INFO [count] Generating count matrix kb_SRR7535552/counts_filtered/cells_x_genes from BUS file kb_SRR7535552/output.filtered.bus
+[2021-07-20 09:53:01,498]    INFO [count] Sorting BUS file kb_SRR7535550/output.bus to kb_SRR7535550/tmp/output.s.bus
+[2021-07-20 09:53:01,770]    INFO [count] Reading matrix kb_SRR7535552/counts_filtered/cells_x_genes.mtx
+[2021-07-20 09:53:02,331]    INFO [count] Writing matrix to h5ad kb_SRR7535552/counts_filtered/adata.h5ad
+... storing 'gene_name' as categorical
+[Tue Jul 20 09:53:03 2021]
+Finished job 10.
+9 of 14 steps (64%) done
+Select jobs to execute...
+
+[Tue Jul 20 09:53:03 2021]
+rule kb_gc:
+    input: fastq_gz/SRR7535548_1.fastq.gz, fastq_gz/SRR7535548_2.fastq.gz
+    output: kb_SRR7535548/counts_filtered/adata.h5ad
+    log: logs/kallisto-bus_SRR7535548.log
+    jobid: 6
+    wildcards: sample=SRR7535548
+    threads: 10
+    resources: tmpdir=/tmp
+
+kb count             -i /mnt/pub/GENCODE/M27/transcriptome.idx             -g /mnt/pub/GENCODE/M27/transcripts_to_genes.txt             -o kb_SRR7535548             -x DROPSEQ             -t 10             --h5ad             --filter bustools             fastq_gz/SRR7535548_1.fastq.gz fastq_gz/SRR7535548_2.fastq.gz
+[2021-07-20 09:53:04,560]    INFO [count] Using index /mnt/pub/GENCODE/M27/transcriptome.idx to generate BUS file to kb_SRR7535548 from
+[2021-07-20 09:53:04,560]    INFO [count]         fastq_gz/SRR7535548_1.fastq.gz
+[2021-07-20 09:53:04,561]    INFO [count]         fastq_gz/SRR7535548_2.fastq.gz
+[2021-07-20 09:53:26,373]    INFO [count] Whitelist not provided
+[2021-07-20 09:53:26,373]    INFO [count] Generating whitelist kb_SRR7535550/whitelist.txt from BUS file kb_SRR7535550/tmp/output.s.bus
+[2021-07-20 09:53:26,600]    INFO [count] Inspecting BUS file kb_SRR7535550/tmp/output.s.bus
+[2021-07-20 09:53:31,852]    INFO [count] Correcting BUS records in kb_SRR7535550/tmp/output.s.bus to kb_SRR7535550/tmp/output.s.c.bus with whitelist kb_SRR7535550/whitelist.txt
+[2021-07-20 09:53:34,432]    INFO [count] Sorting BUS file kb_SRR7535550/tmp/output.s.c.bus to kb_SRR7535550/output.unfiltered.bus
+[2021-07-20 09:53:39,728]    INFO [count] Generating count matrix kb_SRR7535550/counts_unfiltered/cells_x_genes from BUS file kb_SRR7535550/output.unfiltered.bus
+[2021-07-20 09:53:44,170]    INFO [count] Reading matrix kb_SRR7535550/counts_unfiltered/cells_x_genes.mtx
+[2021-07-20 09:53:45,650]    INFO [count] Writing matrix to h5ad kb_SRR7535550/counts_unfiltered/adata.h5ad
+... storing 'gene_name' as categorical
+[2021-07-20 09:53:46,321]    INFO [count] Filtering with bustools
+[2021-07-20 09:53:46,321]    INFO [count] Generating whitelist kb_SRR7535550/filter_barcodes.txt from BUS file kb_SRR7535550/output.unfiltered.bus
+[2021-07-20 09:53:46,363]    INFO [count] Correcting BUS records in kb_SRR7535550/output.unfiltered.bus to kb_SRR7535550/tmp/output.unfiltered.c.bus with whitelist kb_SRR7535550/filter_barcodes.txt
+[2021-07-20 09:53:47,361]    INFO [count] Sorting BUS file kb_SRR7535550/tmp/output.unfiltered.c.bus to kb_SRR7535550/output.filtered.bus
+[2021-07-20 09:53:53,313]    INFO [count] Generating count matrix kb_SRR7535550/counts_filtered/cells_x_genes from BUS file kb_SRR7535550/output.filtered.bus
+[2021-07-20 09:53:57,012]    INFO [count] Reading matrix kb_SRR7535550/counts_filtered/cells_x_genes.mtx
+[2021-07-20 09:53:58,111]    INFO [count] Writing matrix to h5ad kb_SRR7535550/counts_filtered/adata.h5ad
+... storing 'gene_name' as categorical
+[Tue Jul 20 09:53:59 2021]
+Finished job 8.
+10 of 14 steps (71%) done
+Select jobs to execute...
+
+[Tue Jul 20 09:53:59 2021]
+rule kb_gc:
+    input: fastq_gz/SRR7535554_1.fastq.gz, fastq_gz/SRR7535554_2.fastq.gz
+    output: kb_SRR7535554/counts_filtered/adata.h5ad
+    log: logs/kallisto-bus_SRR7535554.log
+    jobid: 12
+    wildcards: sample=SRR7535554
+    threads: 10
+    resources: tmpdir=/tmp
+
+kb count             -i /mnt/pub/GENCODE/M27/transcriptome.idx             -g /mnt/pub/GENCODE/M27/transcripts_to_genes.txt             -o kb_SRR7535554             -x DROPSEQ             -t 10             --h5ad             --filter bustools             fastq_gz/SRR7535554_1.fastq.gz fastq_gz/SRR7535554_2.fastq.gz
+[2021-07-20 09:54:00,775]    INFO [count] Using index /mnt/pub/GENCODE/M27/transcriptome.idx to generate BUS file to kb_SRR7535554 from
+[2021-07-20 09:54:00,775]    INFO [count]         fastq_gz/SRR7535554_1.fastq.gz
+[2021-07-20 09:54:00,775]    INFO [count]         fastq_gz/SRR7535554_2.fastq.gz
+[2021-07-20 09:57:31,642]    INFO [count] Sorting BUS file kb_SRR7535548/output.bus to kb_SRR7535548/tmp/output.s.bus
+[2021-07-20 09:58:16,082]    INFO [count] Whitelist not provided
+[2021-07-20 09:58:16,083]    INFO [count] Generating whitelist kb_SRR7535548/whitelist.txt from BUS file kb_SRR7535548/tmp/output.s.bus
+[2021-07-20 09:58:16,365]    INFO [count] Inspecting BUS file kb_SRR7535548/tmp/output.s.bus
+[2021-07-20 09:58:22,670]    INFO [count] Correcting BUS records in kb_SRR7535548/tmp/output.s.bus to kb_SRR7535548/tmp/output.s.c.bus with whitelist kb_SRR7535548/whitelist.txt
+[2021-07-20 09:58:29,182]    INFO [count] Sorting BUS file kb_SRR7535548/tmp/output.s.c.bus to kb_SRR7535548/output.unfiltered.bus
+[2021-07-20 09:58:38,679]    INFO [count] Generating count matrix kb_SRR7535548/counts_unfiltered/cells_x_genes from BUS file kb_SRR7535548/output.unfiltered.bus
+[2021-07-20 09:58:42,200]    INFO [count] Sorting BUS file kb_SRR7535554/output.bus to kb_SRR7535554/tmp/output.s.bus
+[2021-07-20 09:58:46,165]    INFO [count] Reading matrix kb_SRR7535548/counts_unfiltered/cells_x_genes.mtx
+[2021-07-20 09:58:49,296]    INFO [count] Writing matrix to h5ad kb_SRR7535548/counts_unfiltered/adata.h5ad
+... storing 'gene_name' as categorical
+[2021-07-20 09:58:49,979]    INFO [count] Filtering with bustools
+[2021-07-20 09:58:49,979]    INFO [count] Generating whitelist kb_SRR7535548/filter_barcodes.txt from BUS file kb_SRR7535548/output.unfiltered.bus
+[2021-07-20 09:58:50,059]    INFO [count] Correcting BUS records in kb_SRR7535548/output.unfiltered.bus to kb_SRR7535548/tmp/output.unfiltered.c.bus with whitelist kb_SRR7535548/filter_barcodes.txt
+[2021-07-20 09:58:53,053]    INFO [count] Sorting BUS file kb_SRR7535548/tmp/output.unfiltered.c.bus to kb_SRR7535548/output.filtered.bus
+[2021-07-20 09:59:00,929]    INFO [count] Generating count matrix kb_SRR7535548/counts_filtered/cells_x_genes from BUS file kb_SRR7535548/output.filtered.bus
+[2021-07-20 09:59:06,983]    INFO [count] Reading matrix kb_SRR7535548/counts_filtered/cells_x_genes.mtx
+[2021-07-20 09:59:09,181]    INFO [count] Writing matrix to h5ad kb_SRR7535548/counts_filtered/adata.h5ad
+... storing 'gene_name' as categorical
+[Tue Jul 20 09:59:10 2021]
+Finished job 6.
+11 of 14 steps (79%) done
+Select jobs to execute...
+
+[Tue Jul 20 09:59:10 2021]
+rule kb_gc:
+    input: fastq_gz/SRR7535547_1.fastq.gz, fastq_gz/SRR7535547_2.fastq.gz
+    output: kb_SRR7535547/counts_filtered/adata.h5ad
+    log: logs/kallisto-bus_SRR7535547.log
+    jobid: 5
+    wildcards: sample=SRR7535547
+    threads: 10
+    resources: tmpdir=/tmp
+
+kb count             -i /mnt/pub/GENCODE/M27/transcriptome.idx             -g /mnt/pub/GENCODE/M27/transcripts_to_genes.txt             -o kb_SRR7535547             -x DROPSEQ             -t 10             --h5ad             --filter bustools             fastq_gz/SRR7535547_1.fastq.gz fastq_gz/SRR7535547_2.fastq.gz
+[2021-07-20 09:59:11,903]    INFO [count] Using index /mnt/pub/GENCODE/M27/transcriptome.idx to generate BUS file to kb_SRR7535547 from
+[2021-07-20 09:59:11,903]    INFO [count]         fastq_gz/SRR7535547_1.fastq.gz
+[2021-07-20 09:59:11,904]    INFO [count]         fastq_gz/SRR7535547_2.fastq.gz
+[2021-07-20 09:59:22,460]    INFO [count] Whitelist not provided
+[2021-07-20 09:59:22,461]    INFO [count] Generating whitelist kb_SRR7535554/whitelist.txt from BUS file kb_SRR7535554/tmp/output.s.bus
+[2021-07-20 09:59:22,712]    INFO [count] Inspecting BUS file kb_SRR7535554/tmp/output.s.bus
+[2021-07-20 09:59:27,198]    INFO [count] Correcting BUS records in kb_SRR7535554/tmp/output.s.bus to kb_SRR7535554/tmp/output.s.c.bus with whitelist kb_SRR7535554/whitelist.txt
+[2021-07-20 09:59:35,349]    INFO [count] Sorting BUS file kb_SRR7535554/tmp/output.s.c.bus to kb_SRR7535554/output.unfiltered.bus
+[2021-07-20 09:59:48,055]    INFO [count] Generating count matrix kb_SRR7535554/counts_unfiltered/cells_x_genes from BUS file kb_SRR7535554/output.unfiltered.bus
+[2021-07-20 09:59:59,717]    INFO [count] Reading matrix kb_SRR7535554/counts_unfiltered/cells_x_genes.mtx
+[2021-07-20 10:00:04,426]    INFO [count] Writing matrix to h5ad kb_SRR7535554/counts_unfiltered/adata.h5ad
+... storing 'gene_name' as categorical
+[2021-07-20 10:00:05,289]    INFO [count] Filtering with bustools
+[2021-07-20 10:00:05,290]    INFO [count] Generating whitelist kb_SRR7535554/filter_barcodes.txt from BUS file kb_SRR7535554/output.unfiltered.bus
+[2021-07-20 10:00:05,395]    INFO [count] Correcting BUS records in kb_SRR7535554/output.unfiltered.bus to kb_SRR7535554/tmp/output.unfiltered.c.bus with whitelist kb_SRR7535554/filter_barcodes.txt
+[2021-07-20 10:00:10,306]    INFO [count] Sorting BUS file kb_SRR7535554/tmp/output.unfiltered.c.bus to kb_SRR7535554/output.filtered.bus
+[2021-07-20 10:00:21,692]    INFO [count] Generating count matrix kb_SRR7535554/counts_filtered/cells_x_genes from BUS file kb_SRR7535554/output.filtered.bus
+[2021-07-20 10:00:31,710]    INFO [count] Reading matrix kb_SRR7535554/counts_filtered/cells_x_genes.mtx
+[2021-07-20 10:00:35,146]    INFO [count] Writing matrix to h5ad kb_SRR7535554/counts_filtered/adata.h5ad
+... storing 'gene_name' as categorical
+[Tue Jul 20 10:00:36 2021]
+Finished job 12.
+12 of 14 steps (86%) done
+[2021-07-20 10:01:28,257]    INFO [count] Sorting BUS file kb_SRR7535547/output.bus to kb_SRR7535547/tmp/output.s.bus
+[2021-07-20 10:01:51,721]    INFO [count] Whitelist not provided
+[2021-07-20 10:01:51,722]    INFO [count] Generating whitelist kb_SRR7535547/whitelist.txt from BUS file kb_SRR7535547/tmp/output.s.bus
+[2021-07-20 10:01:51,911]    INFO [count] Inspecting BUS file kb_SRR7535547/tmp/output.s.bus
+[2021-07-20 10:01:55,639]    INFO [count] Correcting BUS records in kb_SRR7535547/tmp/output.s.bus to kb_SRR7535547/tmp/output.s.c.bus with whitelist kb_SRR7535547/whitelist.txt
+[2021-07-20 10:01:56,968]    INFO [count] Sorting BUS file kb_SRR7535547/tmp/output.s.c.bus to kb_SRR7535547/output.unfiltered.bus
+[2021-07-20 10:02:00,764]    INFO [count] Generating count matrix kb_SRR7535547/counts_unfiltered/cells_x_genes from BUS file kb_SRR7535547/output.unfiltered.bus
+[2021-07-20 10:02:03,444]    INFO [count] Reading matrix kb_SRR7535547/counts_unfiltered/cells_x_genes.mtx
+[2021-07-20 10:02:04,387]    INFO [count] Writing matrix to h5ad kb_SRR7535547/counts_unfiltered/adata.h5ad
+... storing 'gene_name' as categorical
+[2021-07-20 10:02:04,928]    INFO [count] Filtering with bustools
+[2021-07-20 10:02:04,928]    INFO [count] Generating whitelist kb_SRR7535547/filter_barcodes.txt from BUS file kb_SRR7535547/output.unfiltered.bus
+[2021-07-20 10:02:04,961]    INFO [count] Correcting BUS records in kb_SRR7535547/output.unfiltered.bus to kb_SRR7535547/tmp/output.unfiltered.c.bus with whitelist kb_SRR7535547/filter_barcodes.txt
+[2021-07-20 10:02:05,432]    INFO [count] Sorting BUS file kb_SRR7535547/tmp/output.unfiltered.c.bus to kb_SRR7535547/output.filtered.bus
+[2021-07-20 10:02:09,060]    INFO [count] Generating count matrix kb_SRR7535547/counts_filtered/cells_x_genes from BUS file kb_SRR7535547/output.filtered.bus
+[2021-07-20 10:02:11,585]    INFO [count] Reading matrix kb_SRR7535547/counts_filtered/cells_x_genes.mtx
+[2021-07-20 10:02:12,207]    INFO [count] Writing matrix to h5ad kb_SRR7535547/counts_filtered/adata.h5ad
+... storing 'gene_name' as categorical
+[Tue Jul 20 10:02:12 2021]
+Finished job 5.
+13 of 14 steps (93%) done
+Select jobs to execute...
+
+[Tue Jul 20 10:02:13 2021]
+localrule all:
+    input: kb_SRR7535543/counts_filtered/adata.h5ad, kb_SRR7535544/counts_filtered/adata.h5ad, kb_SRR7535545/counts_filtered/adata.h5ad, kb_SRR7535546/counts_filtered/adata.h5ad, kb_SRR7535547/counts_filtered/adata.h5ad, kb_SRR7535548/counts_filtered/adata.h5ad, kb_SRR7535549/counts_filtered/adata.h5ad, kb_SRR7535550/counts_filtered/adata.h5ad, kb_SRR7535551/counts_filtered/adata.h5ad, kb_SRR7535552/counts_filtered/adata.h5ad, kb_SRR7535553/counts_filtered/adata.h5ad, kb_SRR7535554/counts_filtered/adata.h5ad, kb_SRR7535555/counts_filtered/adata.h5ad
+    jobid: 0
+    resources: tmpdir=/tmp
+
+[Tue Jul 20 10:02:13 2021]
+Finished job 0.
+14 of 14 steps (100%) done
+Complete log: /mnt/data/PRJNA481681/.snakemake/log/2021-07-20T092833.057691.snakemake.log

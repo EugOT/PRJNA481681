@@ -1,0 +1,118 @@
+---
+title: "R Notebook"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+
+
+```{r}
+suppressPackageStartupMessages({
+    library(readr)
+    library(here)
+    library(janitor)
+    library(stringr)
+    library(dplyr)
+    library(magrittr)
+    # library(SingleCellExperiment)
+    # library(scater)
+    # library(BiocParallel)
+    library(biomaRt)
+    library(Seurat)
+    library(SeuratDisk)
+    # library(liana)
+})
+
+t2g <- read_tsv("/mnt/pub/GENCODE/M27/transcripts_to_genes.txt", 
+                col_names = c("tr_id", "ensembl_gene_id", "external_gene_name",
+                              "external_gene_name_variant",
+                              "chr", "start", "end", "strand"))
+
+tln <- t2g %>%  dplyr::select(ensembl_gene_id, external_gene_name) %>% 
+    distinct(ensembl_gene_id, .keep_all = TRUE) %>%
+    distinct(external_gene_name, .keep_all = TRUE)
+
+runs <- 
+    list.dirs() %>% 
+    .[stringr::str_detect(string = ., pattern = "kb_")] %>% 
+    .[stringr::str_detect(string = ., pattern = "counts_filtered")]
+samp <- runs %>% 
+  str_remove(pattern = "./kb_") %>% 
+  str_split_fixed(pattern = "/", n = 2) %>% 
+  .[, 1] %>% 
+  plyr::mapvalues(x = .,
+                  from = c(
+                    "SRR7535543",
+                    "SRR7535544",
+                    "SRR7535545",
+                    "SRR7535546",
+                    "SRR7535547",
+                    "SRR7535548",
+                    "SRR7535549",
+                    "SRR7535550",
+                    "SRR7535551",
+                    "SRR7535552",
+                    "SRR7535553",
+                    "SRR7535554",
+                    "SRR7535555"),
+                  to = c(
+                    "CT14",
+                    "CT18",
+                    "CT22",
+                    "CT26",
+                    "CT30",
+                    "CT34",
+                    "CT38",
+                    "CT42",
+                    "CT46",
+                    "CT50",
+                    "CT54",
+                    "CT58",
+                    "CT17flash1h250lux"))
+names(runs) <- samp
+
+ReadKB <- function(path, prj) {
+    Convert(sprintf("%s/adata.h5ad", path), dest = "h5seurat", overwrite = TRUE)
+    srt <- LoadH5Seurat(sprintf("%s/adata.h5seurat", path))
+    srt <- RenameCells(srt, str_c("scn", prj, sep = "_"))
+    srt <- DietSeurat(srt, features = tln$ensembl_gene_id)
+    
+    rownames(srt@assays$RNA@counts) <- 
+        tln %>% 
+        arrange(match(ensembl_gene_id, rownames(srt))) %>% 
+        .$external_gene_name
+    rownames(srt@assays$RNA@data) <- 
+        tln %>% 
+        arrange(match(ensembl_gene_id, rownames(srt))) %>% 
+        .$external_gene_name
+    
+    srt$study_id <- "Wen2020"
+    srt$age <- "P60"
+    srt$orig.ident <- prj
+    srt$sex <- 1
+    
+    SaveH5Seurat(srt, filename = sprintf("%s/adata.h5seurat", path), overwrite = TRUE)
+    return(srt)
+}
+
+srt_list <- runs %>% purrr::imap(ReadKB)
+scn_combined <- merge(srt_list[["CT14"]], y = c(srt_list[["CT18"]], 
+                                                srt_list[["CT22"]],
+                                                srt_list[["CT26"]],
+                                                srt_list[["CT30"]],
+                                                srt_list[["CT34"]], 
+                                                srt_list[["CT38"]], 
+                                                srt_list[["CT42"]],
+                                                srt_list[["CT46"]],
+                                                srt_list[["CT50"]],
+                                                srt_list[["CT54"]],
+                                                srt_list[["CT58"]],
+                                                srt_list[["CT17flash1h250lux"]]), 
+                      project = "scn_wen_2020")
+glimpse(scn_combined@meta.data)
+table(scn_combined$orig.ident)
+SaveH5Seurat(scn_combined, filename = "wen2020_hpt.h5seurat", overwrite = T)
+Convert("wen2020_hpt.h5seurat", dest = "h5ad")
+
+```
